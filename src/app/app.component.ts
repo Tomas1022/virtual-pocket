@@ -1,11 +1,22 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, NgModule } from '@angular/core';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { ShowNameComponent } from './show-name/show-name.component';
+import { UserTableComponent } from './components/user-table/user-table.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+
+@NgModule({
+  declarations: [],
+  imports: [BrowserModule, ReactiveFormsModule],
+  providers: [],
+
+})
+export class AppModule { }
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ShowNameComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
