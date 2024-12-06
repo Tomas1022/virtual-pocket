@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { IResponse } from '../interfaces/response.interface';
+import { error } from 'console';
 
 
 @Injectable({
@@ -25,14 +27,14 @@ export class UsrService {
         cedula: cedula,
         contrasena: contrasena
       }, { headers: headers }
-    ).subscribe(data => {
-      if (data != null) {
-        localStorage.setItem("user", JSON.stringify(data));
+    ).subscribe((response: IResponse) => {
+      if (response.status == 200) {
+        localStorage.setItem("user", JSON.stringify(response.data));
         this.isLogged = true;
         this.router.navigate(['/home']);
       }
       else {
-        console.log('Usuario inexistente');
+        console.log(response.mensaje);
       }
     });
   }

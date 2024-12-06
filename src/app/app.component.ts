@@ -1,7 +1,5 @@
 import { Component, NgModule } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { ShowNameComponent } from './show-name/show-name.component';
-import { UserTableComponent } from './components/user-table/user-table.component';
+import { RouterOutlet } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 

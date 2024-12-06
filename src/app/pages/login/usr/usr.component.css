@@ -1,54 +1,15 @@
-form {
-  background-color: #ffffff;
+.form_user {
+  display: flex;
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
 }
-fieldset {
+.form_fieldset {
   border: none;
   margin-bottom: 20px;
   padding: 0;
 }
-label {
-  font-size: 14px;
-  font-weight: bold;
-  color: #333333;
-  display: block;
-  margin-bottom: 5px;
-}
-input[type="number"],
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  color: #333;
-  transition: border-color 0.3s ease;
-}
-input[type="number"]:focus,
-input[type="text"]:focus {
-  border-color: #000;
-  outline: none;
-  background-color: #fff;
-}
-button {
-  width: 100%;
-  padding: 12px;
-  background-color: #000;
-  color: white;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-weight: bold;
-}
 
-button:hover {
-  background-color: #333;
+.form_center {
+  margin: 0 auto;
 }

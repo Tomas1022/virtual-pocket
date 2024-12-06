@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UsrService } from '../../../services/usr.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usr',
