@@ -10,6 +10,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
+  isDark = true;
+
   form() {
     throw new Error('Method not implemented.');
   }
@@ -55,9 +57,22 @@ export class SignupComponent {
       city: this.city
     })
   }
+  toggleRed() {
+    this.pass
+  };
   handleSubmit(): void {
     console.log(this.pass);
-    console.log(this.usrSignup.value)
+    console.log(this.usrSignup)
+  }
+
+  getMessageError(control: FormControl, name: string = "") {
+    if (control?.hasError('required')) {
+      return `${name} is required`;
+    } else if (control?.hasError('minlength')) {
+      return name + 'minimun eight characters';
+    } else if (control?.hasError('maxlength')) {
+      return name + 'max twenty characters';
+    }
+    return '';
   }
 }
-

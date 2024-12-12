@@ -3,127 +3,242 @@
     <h1 class="text-white">Signup</h1>
   </div>
   <div class="row mt-4 justify-content-center align-items-center">
-    <div class="form_user col-md-3 bg-light">
+    <div class="form_user col-md-7 bg-light">
       <form [formGroup]="usrSignup" (submit)="handleSubmit()">
         <div class="form_center row justify-content-center">
-          <fieldset class="form_fieldset">
-            <label for="pass" class="form-label">Password</label>
-            <input
-              [ngClass]="{ red: pass }"
-              class="form-control"
-              type="text"
-              minlength="8"
-              maxlength="20"
-              id="pass"
-              formControlName="pass"
-            />
-            @if (!pass.valid && pass.touched) {
-            <div>Hay un error</div>
-            }
-          </fieldset>
-          <fieldset class="form_fieldset">
-            <label for="identification" class="form-label"
-              >Identification</label
-            >
-            <input
-              type="number"
-              maxlength="15"
-              class="form-control"
-              id="identification"
-              formControlName="identification"
-            />
-          </fieldset>
-          <fieldset class="form_fieldset">
-            <label for="email" class="form-label">Email</label>
-            <input
-              type="text"
-              maxlength="100"
-              class="form-control"
-              id="email"
-              formControlName="email"
-            />
-          </fieldset>
-          <fieldset class="form_fieldset">
-            <label for="nams" class="form-label">Name</label>
-            <input
-              type="text"
-              minlength="3"
-              maxlength="100"
-              class="form-control"
-              id="nams"
-              formControlName="nams"
-            />
-          </fieldset>
-          <fieldset class="form_fieldset">
-            <label for="lastName" class="form-label">Last Name</label>
-            <input
-              type="text"
-              minlength="3"
-              maxlength="100"
-              class="form-control"
-              id="lastName"
-              formControlName="lastName"
-            />
-          </fieldset>
-          <fieldset class="form_fieldset">
-            <label for="Age" class="form-label">Age</label>
-            <input
-              type="text"
-              maxlength="3"
-              min="16"
-              class="form-control"
-              id="age"
-              formControlName="age"
-            />
-          </fieldset>
-          <fieldset class="form_fieldset">
-            <label for="telephone" class="form-label">Telephone</label>
-            <input
-              type="text"
-              maxlength="15"
-              class="form-control"
-              id="telephone"
-              formControlName="telephone"
-            />
-          </fieldset>
-          <fieldset class="form_fieldset">
-            <label for="birthday" class="form-label">Birthday</label>
-            <input
-              type="date"
-              class="form-control"
-              id="birthday"
-              formControlName="birthday"
-            />
-          </fieldset>
-          <fieldset class="form_fieldset">
-            <label for="dniExpedition" class="form-label">Dni Expedition</label>
-            <input
-              type="date"
-              class="form-control"
-              id="dniExpedition"
-              formControlName="dniExpedition"
-            />
-          </fieldset>
-          <fieldset class="form_fieldset">
-            <label for="address" class="form-label">Addres</label>
-            <input
-              type="text"
-              maxlength="50"
-              class="form-control"
-              id="address"
-              formControlName="address"
-            />
-          </fieldset>
-          <fieldset class="form_fieldset">
-            <label for="city" class="form-label">City</label>
-            <input
-              type="text"
-              maxlength="25"
-              class="form-control"
-              id="city"
-              formControlName="city"
-            />
-          </fieldset>
+          <div class="col">
+            <fieldset class="form_fieldset">
+              <label for="nams" class="form-label">Name</label>
+              <input
+                [ngClass]="{
+                  validate_error: nams.valid == false && nams.touched,
+                  'form-control': true
+                }"
+                type="text"
+                class="form-control"
+                id="nams"
+                formControlName="nams"
+              />
+              @if (!nams.valid && nams.touched) {
+              <div>
+                {{ getMessageError(nams, "Name") }}
+              </div>
+              }
+            </fieldset>
+          </div>
+          <div class="col">
+            <fieldset class="form_fieldset">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                [ngClass]="{
+                  validate_error: lastName.valid == false && lastName.touched,
+                  'form-control': true
+                }"
+                type="text"
+                class="form-control"
+                id="lastName"
+                formControlName="lastName"
+              />
+              @if (!lastName.valid && lastName.touched) {
+              <div>
+                {{ getMessageError(lastName, "Last name") }}
+              </div>
+              }
+            </fieldset>
+          </div>
+
+          <div class="w-100"></div>
+          <div class="col">
+            <fieldset class="form_fieldset">
+              <label for="identification" class="form-label"
+                >Identification</label
+              >
+              <input
+                [ngClass]="{
+                  validate_error:
+                    identification.valid == false && identification.touched,
+                  'form-control': true
+                }"
+                type="number"
+                class="form-control"
+                id="identification"
+                formControlName="identification"
+              />
+              @if (!identification.valid && identification.touched) {
+              <div>
+                {{ getMessageError(identification) }}
+              </div>
+              }
+            </fieldset>
+          </div>
+          <div class="col">
+            <fieldset class="form_fieldset">
+              <label for="email" class="form-label">Email</label>
+              <input
+                [ngClass]="{
+                  validate_error: email.valid == false && email.touched,
+                  'form-control': true
+                }"
+                type="text"
+                class="form-control"
+                id="email"
+                formControlName="email"
+              />
+              @if (!email.valid && email.touched) {
+              <div>
+                {{ getMessageError(email) }}
+              </div>
+              }
+            </fieldset>
+          </div>
+          <div class="w-100"></div>
+          <div class="col">
+            <fieldset class="form_fieldset">
+              <label for="telephone" class="form-label">Telephone</label>
+              <input
+                [ngClass]="{
+                  validate_error: telephone.valid == false && telephone.touched,
+                  'form-control': true
+                }"
+                type="text"
+                class="form-control"
+                id="telephone"
+                formControlName="telephone"
+              />
+              @if (!telephone.valid && telephone.touched) {
+              <div>
+                {{ getMessageError(telephone) }}
+              </div>
+              }
+            </fieldset>
+          </div>
+          <div class="col">
+            <fieldset class="form_fieldset">
+              <label for="Age" class="form-label">Age</label>
+              <input
+                [ngClass]="{
+                  validate_error: age.valid == false && age.touched,
+                  'form-control': true
+                }"
+                type="text"
+                min="16"
+                class="form-control"
+                id="age"
+                formControlName="age"
+              />
+              @if (!age.valid && age.touched) {
+              <div>
+                {{ getMessageError(age) }}
+              </div>
+              }
+            </fieldset>
+          </div>
+          <div class="w-100"></div>
+          <div class="col">
+            <fieldset class="form_fieldset">
+              <label for="birthday" class="form-label">Birthday</label>
+              <input
+                [ngClass]="{
+                  validate_error: birthday.valid == false && birthday.touched,
+                  'form-control': true
+                }"
+                type="date"
+                class="form-control"
+                id="birthday"
+                formControlName="birthday"
+              />
+              @if (!birthday.valid && birthday.touched) {
+              <div>
+                {{ getMessageError(birthday) }}
+              </div>
+              }
+            </fieldset>
+          </div>
+          <div class="col">
+            <fieldset class="form_fieldset">
+              <label for="dniExpedition" class="form-label"
+                >Dni Expedition</label
+              >
+              <input
+                [ngClass]="{
+                  validate_error:
+                    dniExpedition.valid == false && dniExpedition.touched,
+                  'form-control': true
+                }"
+                type="date"
+                class="form-control"
+                id="dniExpedition"
+                formControlName="dniExpedition"
+              />
+              @if (!dniExpedition.valid && dniExpedition.touched) {
+              <div>
+                {{ getMessageError(dniExpedition) }}
+              </div>
+              }
+            </fieldset>
+          </div>
+          <div class="w-100"></div>
+          <div class="col">
+            <fieldset class="form_fieldset">
+              <label for="address" class="form-label">Addres</label>
+              <input
+                [ngClass]="{
+                  validate_error: address.valid == false && address.touched,
+                  'form-control': true
+                }"
+                type="text"
+                class="form-control"
+                id="address"
+                formControlName="address"
+              />
+              @if (!address.valid && address.touched) {
+              <div>
+                {{ getMessageError(address) }}
+              </div>
+              }
+            </fieldset>
+          </div>
+          <div class="col">
+            <fieldset class="form_fieldset">
+              <label for="city" class="form-label">City</label>
+              <input
+                [ngClass]="{
+                  validate_error: city.valid == false && city.touched,
+                  'form-control': true
+                }"
+                type="text"
+                class="form-control"
+                id="city"
+                formControlName="city"
+              />
+              @if (!city.valid && city.touched) {
+              <div>
+                {{ getMessageError(city) }}
+              </div>
+              }
+            </fieldset>
+          </div>
+          <div class="w-100"></div>
+          <div class="col">
+            <fieldset class="form_fieldset">
+              <label for="pass" class="form-label">Password</label>
+              <input
+                [ngClass]="{
+                  validate_error: pass.valid == false && pass.touched,
+                  'form-control': true
+                }"
+                type="text"
+                id="pass"
+                formControlName="pass"
+              />
+
+              @if (!pass.valid && pass.touched) {
+              <div>
+                {{ getMessageError(pass) }}
+              </div>
+              }
+            </fieldset>
+          </div>
         </div>
         <div class="row form_center justify-content-center">
           <button type="submit" class="btn btn-dark col-md-6">Signup</button>
