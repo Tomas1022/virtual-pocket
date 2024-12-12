@@ -1,0 +1,15 @@
+.form_user {
+  display: flex;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.form_fieldset {
+  border: none;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.form_center {
+  margin: 0 auto;
+}

@@ -1,1 +1,134 @@
-<p>signup works!</p>
+<div class="row m-0">
+  <div class="row text-center col-md-12 mt-3">
+    <h1 class="text-white">Signup</h1>
+  </div>
+  <div class="row mt-4 justify-content-center align-items-center">
+    <div class="form_user col-md-3 bg-light">
+      <form [formGroup]="usrSignup" (submit)="handleSubmit()">
+        <div class="form_center row justify-content-center">
+          <fieldset class="form_fieldset">
+            <label for="pass" class="form-label">Password</label>
+            <input
+              [ngClass]="{ red: pass }"
+              class="form-control"
+              type="text"
+              minlength="8"
+              maxlength="20"
+              id="pass"
+              formControlName="pass"
+            />
+            @if (!pass.valid && pass.touched) {
+            <div>Hay un error</div>
+            }
+          </fieldset>
+          <fieldset class="form_fieldset">
+            <label for="identification" class="form-label"
+              >Identification</label
+            >
+            <input
+              type="number"
+              maxlength="15"
+              class="form-control"
+              id="identification"
+              formControlName="identification"
+            />
+          </fieldset>
+          <fieldset class="form_fieldset">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="text"
+              maxlength="100"
+              class="form-control"
+              id="email"
+              formControlName="email"
+            />
+          </fieldset>
+          <fieldset class="form_fieldset">
+            <label for="nams" class="form-label">Name</label>
+            <input
+              type="text"
+              minlength="3"
+              maxlength="100"
+              class="form-control"
+              id="nams"
+              formControlName="nams"
+            />
+          </fieldset>
+          <fieldset class="form_fieldset">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input
+              type="text"
+              minlength="3"
+              maxlength="100"
+              class="form-control"
+              id="lastName"
+              formControlName="lastName"
+            />
+          </fieldset>
+          <fieldset class="form_fieldset">
+            <label for="Age" class="form-label">Age</label>
+            <input
+              type="text"
+              maxlength="3"
+              min="16"
+              class="form-control"
+              id="age"
+              formControlName="age"
+            />
+          </fieldset>
+          <fieldset class="form_fieldset">
+            <label for="telephone" class="form-label">Telephone</label>
+            <input
+              type="text"
+              maxlength="15"
+              class="form-control"
+              id="telephone"
+              formControlName="telephone"
+            />
+          </fieldset>
+          <fieldset class="form_fieldset">
+            <label for="birthday" class="form-label">Birthday</label>
+            <input
+              type="date"
+              class="form-control"
+              id="birthday"
+              formControlName="birthday"
+            />
+          </fieldset>
+          <fieldset class="form_fieldset">
+            <label for="dniExpedition" class="form-label">Dni Expedition</label>
+            <input
+              type="date"
+              class="form-control"
+              id="dniExpedition"
+              formControlName="dniExpedition"
+            />
+          </fieldset>
+          <fieldset class="form_fieldset">
+            <label for="address" class="form-label">Addres</label>
+            <input
+              type="text"
+              maxlength="50"
+              class="form-control"
+              id="address"
+              formControlName="address"
+            />
+          </fieldset>
+          <fieldset class="form_fieldset">
+            <label for="city" class="form-label">City</label>
+            <input
+              type="text"
+              maxlength="25"
+              class="form-control"
+              id="city"
+              formControlName="city"
+            />
+          </fieldset>
+        </div>
+        <div class="row form_center justify-content-center">
+          <button type="submit" class="btn btn-dark col-md-6">Signup</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

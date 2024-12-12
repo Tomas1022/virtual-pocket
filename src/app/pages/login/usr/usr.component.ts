@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UsrService } from '../../../services/usr.service';
 
 @Component({
@@ -19,8 +19,8 @@ export class UsrComponent {
   password: FormControl;
 
   constructor(private userService: UsrService) {
-    this.identification = new FormControl('')
-    this.password = new FormControl('')
+    this.identification = new FormControl('', [Validators.required, Validators.maxLength(15)])
+    this.password = new FormControl('', [Validators.required, Validators.maxLength(20)])
     this.usrLogin = new FormGroup({
       identification: this.identification,
       password: this.password

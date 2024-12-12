@@ -1,10 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { IResponse } from '../interfaces/response.interface';
-import { error } from 'console';
-
+import Swal from 'sweetalert2'
 
 @Injectable({
   providedIn: 'root'
@@ -29,18 +27,23 @@ export class UsrService {
       }, { headers: headers }
     ).subscribe((response: IResponse) => {
       if (response.status == 200) {
-        localStorage.setItem("user", JSON.stringify(response.data));
+        sessionStorage.setItem("user", JSON.stringify(response.data));
         this.isLogged = true;
         this.router.navigate(['/home']);
       }
       else {
-        console.log(response.mensaje);
+        Swal.fire({
+          title: 'Alerta',
+          text: response.mensaje,
+          icon: 'warning',
+          confirmButtonText: 'aceptar'
+        })
       }
     });
   }
 
   getUser() {
-    const user = localStorage.getItem("user");
+    const user = sessionStorage.getItem("user");
     if (user != null) {
       return user;
     } else {
