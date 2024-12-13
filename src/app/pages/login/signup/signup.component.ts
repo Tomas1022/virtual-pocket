@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { EmailValidator, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -37,8 +37,8 @@ export class SignupComponent {
     this.email = new FormControl('', [Validators.required, Validators.email])
     this.nams = new FormControl('', [Validators.required, Validators.maxLength(100)])
     this.lastName = new FormControl('', [Validators.required, Validators.maxLength(100)])
-    this.age = new FormControl('', [Validators.required, Validators.minLength(2), Validators.min(16)])
-    this.telephone = new FormControl('', [Validators.required, Validators.maxLength(12)])
+    this.age = new FormControl('', [Validators.required, Validators.min(16)])
+    this.telephone = new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(12)])
     this.birthday = new FormControl('', [Validators.required])
     this.dniExpedition = new FormControl('', [Validators.required])
     this.address = new FormControl('', [Validators.required, Validators.maxLength(50)])
@@ -65,13 +65,13 @@ export class SignupComponent {
     console.log(this.usrSignup)
   }
 
-  getMessageError(control: FormControl, name: string = "") {
+  getMessageError(control: FormControl, name: string = "", minL: string, maxL: string) {
     if (control?.hasError('required')) {
       return `${name} is required`;
     } else if (control?.hasError('minlength')) {
-      return name + 'minimun eight characters';
+      return `Minimun ${minL} characters`;
     } else if (control?.hasError('maxlength')) {
-      return name + 'max twenty characters';
+      return `Max ${maxL} characters`;
     }
     return '';
   }

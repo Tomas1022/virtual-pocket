@@ -21,7 +21,7 @@
               />
               @if (!nams.valid && nams.touched) {
               <div>
-                {{ getMessageError(nams, "Name") }}
+                {{ getMessageError(nams, "Name", "", "100") }}
               </div>
               }
             </fieldset>
@@ -41,7 +41,7 @@
               />
               @if (!lastName.valid && lastName.touched) {
               <div>
-                {{ getMessageError(lastName, "Last name") }}
+                {{ getMessageError(lastName, "Last name", "", "100") }}
               </div>
               }
             </fieldset>
@@ -66,7 +66,9 @@
               />
               @if (!identification.valid && identification.touched) {
               <div>
-                {{ getMessageError(identification) }}
+                {{
+                  getMessageError(identification, "Identification", "", "15")
+                }}
               </div>
               }
             </fieldset>
@@ -86,7 +88,7 @@
               />
               @if (!email.valid && email.touched) {
               <div>
-                {{ getMessageError(email) }}
+                {{ getMessageError(email, "Email", "", "") }}
               </div>
               }
             </fieldset>
@@ -107,7 +109,7 @@
               />
               @if (!telephone.valid && telephone.touched) {
               <div>
-                {{ getMessageError(telephone) }}
+                {{ getMessageError(telephone, "Telephone", "10", "12") }}
               </div>
               }
             </fieldset>
@@ -128,7 +130,7 @@
               />
               @if (!age.valid && age.touched) {
               <div>
-                {{ getMessageError(age) }}
+                {{ getMessageError(age, "Age", "", "") }}
               </div>
               }
             </fieldset>
@@ -149,7 +151,7 @@
               />
               @if (!birthday.valid && birthday.touched) {
               <div>
-                {{ getMessageError(birthday) }}
+                {{ getMessageError(birthday, "Birthday", "", "") }}
               </div>
               }
             </fieldset>
@@ -172,7 +174,7 @@
               />
               @if (!dniExpedition.valid && dniExpedition.touched) {
               <div>
-                {{ getMessageError(dniExpedition) }}
+                {{ getMessageError(dniExpedition, "Expedition", "", "") }}
               </div>
               }
             </fieldset>
@@ -193,7 +195,7 @@
               />
               @if (!address.valid && address.touched) {
               <div>
-                {{ getMessageError(address) }}
+                {{ getMessageError(address, "Address", "", "50") }}
               </div>
               }
             </fieldset>
@@ -213,7 +215,7 @@
               />
               @if (!city.valid && city.touched) {
               <div>
-                {{ getMessageError(city) }}
+                {{ getMessageError(city, "City", "", "25") }}
               </div>
               }
             </fieldset>
@@ -234,7 +236,7 @@
 
               @if (!pass.valid && pass.touched) {
               <div>
-                {{ getMessageError(pass) }}
+                {{ getMessageError(pass, "Password", "8", "25") }}
               </div>
               }
             </fieldset>
