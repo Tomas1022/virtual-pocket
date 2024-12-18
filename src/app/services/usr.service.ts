@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { IResponse } from '../interfaces/response.interface';
 import Swal from 'sweetalert2'
+import { response } from 'express';
+import { register } from 'module';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +43,6 @@ export class UsrService {
       }
     });
   }
-
   getUser() {
     const user = sessionStorage.getItem("user");
     if (user != null) {

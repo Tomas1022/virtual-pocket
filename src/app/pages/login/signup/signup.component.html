@@ -3,7 +3,7 @@
     <h1 class="text-white">Signup</h1>
   </div>
   <div class="row mt-4 justify-content-center align-items-center">
-    <div class="form_user col-md-7 bg-light">
+    <div class="form_user col-md-8 bg-light">
       <form [formGroup]="usrSignup" (submit)="handleSubmit()">
         <div class="form_center row justify-content-center">
           <div class="col">
@@ -21,7 +21,7 @@
               />
               @if (!nams.valid && nams.touched) {
               <div>
-                {{ getMessageError(nams, "Name", "", "100") }}
+                {{ getMessageError(nams, "Name", 0, 100) }}
               </div>
               }
             </fieldset>
@@ -41,13 +41,12 @@
               />
               @if (!lastName.valid && lastName.touched) {
               <div>
-                {{ getMessageError(lastName, "Last name", "", "100") }}
+                {{ getMessageError(lastName, "Last name", 0, 100) }}
               </div>
               }
             </fieldset>
           </div>
 
-          <div class="w-100"></div>
           <div class="col">
             <fieldset class="form_fieldset">
               <label for="identification" class="form-label"
@@ -66,13 +65,12 @@
               />
               @if (!identification.valid && identification.touched) {
               <div>
-                {{
-                  getMessageError(identification, "Identification", "", "15")
-                }}
+                {{ getMessageError(identification, "Identification", 0, 15) }}
               </div>
               }
             </fieldset>
           </div>
+          <div class="w-100"></div>
           <div class="col">
             <fieldset class="form_fieldset">
               <label for="email" class="form-label">Email</label>
@@ -88,12 +86,12 @@
               />
               @if (!email.valid && email.touched) {
               <div>
-                {{ getMessageError(email, "Email", "", "") }}
+                {{ getMessageError(email, "Email") }}
               </div>
               }
             </fieldset>
           </div>
-          <div class="w-100"></div>
+
           <div class="col">
             <fieldset class="form_fieldset">
               <label for="telephone" class="form-label">Telephone</label>
@@ -109,37 +107,16 @@
               />
               @if (!telephone.valid && telephone.touched) {
               <div>
-                {{ getMessageError(telephone, "Telephone", "10", "12") }}
+                {{ getMessageError(telephone, "Telephone", 10, 12) }}
               </div>
               }
             </fieldset>
           </div>
-          <div class="col">
-            <fieldset class="form_fieldset">
-              <label for="Age" class="form-label">Age</label>
-              <input
-                [ngClass]="{
-                  validate_error: age.valid == false && age.touched,
-                  'form-control': true
-                }"
-                type="text"
-                min="16"
-                class="form-control"
-                id="age"
-                formControlName="age"
-              />
-              @if (!age.valid && age.touched) {
-              <div>
-                {{ getMessageError(age, "Age", "", "") }}
-              </div>
-              }
-            </fieldset>
-          </div>
-          <div class="w-100"></div>
           <div class="col">
             <fieldset class="form_fieldset">
               <label for="birthday" class="form-label">Birthday</label>
               <input
+                (change)="showAge()"
                 [ngClass]="{
                   validate_error: birthday.valid == false && birthday.touched,
                   'form-control': true
@@ -151,7 +128,28 @@
               />
               @if (!birthday.valid && birthday.touched) {
               <div>
-                {{ getMessageError(birthday, "Birthday", "", "") }}
+                {{ getMessageError(birthday, "Birthday") }}
+              </div>
+              }
+            </fieldset>
+          </div>
+          <div class="w-100"></div>
+          <div class="col">
+            <fieldset class="form_fieldset" [disabled]="age">
+              <label for="Age" class="form-label">Age</label>
+              <input
+                [ngClass]="{
+                  validate_error: age.valid == false && age.touched,
+                  'form-control': true
+                }"
+                type="number"
+                class="form-control"
+                id="age"
+                formControlName="age"
+              />
+              @if (!age.valid && age.touched) {
+              <div>
+                {{ getMessageError(age, "Age") }}
               </div>
               }
             </fieldset>
@@ -174,12 +172,11 @@
               />
               @if (!dniExpedition.valid && dniExpedition.touched) {
               <div>
-                {{ getMessageError(dniExpedition, "Expedition", "", "") }}
+                {{ getMessageError(dniExpedition, "Expedition") }}
               </div>
               }
             </fieldset>
           </div>
-          <div class="w-100"></div>
           <div class="col">
             <fieldset class="form_fieldset">
               <label for="address" class="form-label">Addres</label>
@@ -195,11 +192,12 @@
               />
               @if (!address.valid && address.touched) {
               <div>
-                {{ getMessageError(address, "Address", "", "50") }}
+                {{ getMessageError(address, "Address", 0, 50) }}
               </div>
               }
             </fieldset>
           </div>
+          <div class="w-100"></div>
           <div class="col">
             <fieldset class="form_fieldset">
               <label for="city" class="form-label">City</label>
@@ -215,12 +213,11 @@
               />
               @if (!city.valid && city.touched) {
               <div>
-                {{ getMessageError(city, "City", "", "25") }}
+                {{ getMessageError(city, "City", 0, 25) }}
               </div>
               }
             </fieldset>
           </div>
-          <div class="w-100"></div>
           <div class="col">
             <fieldset class="form_fieldset">
               <label for="pass" class="form-label">Password</label>
@@ -236,7 +233,7 @@
 
               @if (!pass.valid && pass.touched) {
               <div>
-                {{ getMessageError(pass, "Password", "8", "25") }}
+                {{ getMessageError(pass, "Password", 0, 25) }}
               </div>
               }
             </fieldset>
