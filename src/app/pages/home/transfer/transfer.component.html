@@ -1,29 +1,66 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>twitter</td>
-    </tr>
-  </tbody>
-</table>
+<div class="row m-0">
+  <div class="row text-center col-md-12 mt-3">
+    <h1 class="text-white">Transaction</h1>
+  </div>
+  <div class="row mt-4 justify-content-center align-items-center">
+    <div class="transactionForm col-md-8 bg-light">
+      <form [formGroup]="transactionForm" (submit)="handleSubmit()">
+        <div class="form_center row justify-content-center">
+          <div class="col">
+            <fieldset class="form_fieldset">
+              <label for="receptor" class="form-label">Receptor</label>
+              <input
+                type=""
+                class="form-control"
+                id="receptor"
+                formControlName="receptor"
+              />
+            </fieldset>
+          </div>
+          <div class="w-100"></div>
+          <div class="col">
+            <fieldset class="form_fieldset">
+              <label for="amount" class="form-label">Amount</label>
+              <input
+                type="number"
+                class="form-control"
+                id="amount"
+                formControlName="amount"
+              />
+            </fieldset>
+          </div>
+          <div class="w-100"></div>
+          <div class="col">
+            <fieldset class="form_fieldset">
+              <label for="dat" class="form-label">Date</label>
+              <input
+                type="date"
+                class="form-control"
+                id="dat"
+                formControlName="dat"
+              />
+            </fieldset>
+          </div>
+          <div class="w-100"></div>
+
+          <div class="col">
+            <fieldset class="form_fieldset">
+              <label for="typ" class="form-label">Type</label>
+              <input
+                type="text"
+                class="form-control"
+                id="typ"
+                formControlName="typ"
+              />
+            </fieldset>
+          </div>
+        </div>
+        <div class="row form_center justify-content-center">
+          <button type="submit" class="btn btn-dark col-md-6">
+            Send Transfer
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

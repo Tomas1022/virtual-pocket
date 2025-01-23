@@ -11,7 +11,7 @@ import { AbstractControl, EmailValidator, FormControl, FormGroup, ReactiveFormsM
 })
 export class SignupComponent {
   user: any;
-  usrSignup: FormGroup
+  usrSignup: FormGroup;
   pass: FormControl;
   identification: FormControl;
   email: FormControl;
